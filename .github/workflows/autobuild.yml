@@ -80,10 +80,8 @@ jobs:
         with:
           ref: main
 
-      - name: Download ROOTFS manualy
-        working-directory: /workdir
+      - name: Download ROOTFS via link
         run: |
-          df -hT $PWD
           if [ $(echo ${{ input.rootfs_url }} | grep "drive.") ]; then
             if [ $(echo ${{ input.rootfs_url }} | awk -F "/" '{print $6}') ]; then
               link_gdrive=$(echo ${{ input.rootfs_url }} | awk -F "/" '{print $6}')
@@ -103,7 +101,6 @@ jobs:
               fi
             fi
           fi
-          ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
           
       - name: Building OpenWrt
