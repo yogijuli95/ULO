@@ -79,7 +79,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          wget ${{ inputs.rootfs_url }} -P ./openwrt
+          wget ${{ inputs.rootfs_url }} -P ./rootfs
           sudo ./ulo -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs }} -s ${{ inputs.rootfs_size }}
           
       - name: Creating Package Artifact
