@@ -36,8 +36,8 @@ on:
           - rk3588-orangepi-5plus
           - rk3588s-orangepi-5
       rootfs_url:
-        description: "Upload ROOTFS anda"
-        required: true
+        description: "Upload ROOTFS via link (MEGA,mediafire,GDrive)"
+        required: false
         default: ""
       rootfs:
         description: 'ROOTFS File (ex. ImmortalWrt-21-02-7-rootfs.tar.gz)'
