@@ -35,6 +35,10 @@ on:
           - rk3566-orangepi-3b
           - rk3588-orangepi-5plus
           - rk3588s-orangepi-5
+      rootfs_url:
+        description: "Upload ROOTFS anda"
+        required: true
+        default: ""
       rootfs:
         description: 'ROOTFS File (ex. ImmortalWrt-21-02-7-rootfs.tar.gz)'
         required: true
@@ -75,6 +79,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
+          wget ${{ inputs.rootfs_url }} 
           sudo ./ulo -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs }} -s ${{ inputs.rootfs_size }}
           
       - name: Creating Package Artifact
