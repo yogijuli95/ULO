@@ -88,7 +88,7 @@ jobs:
             else
               link_gdrive=$(echo ${{ inputs.rootfs_url }} | awk -F "/" '{print $4}' | awk -F "?id=" '{print $2}'|awk -F "&export" '{print $1}')
             fi
-          sudo gdown ${link_gdrive} ./rootfs
+          sudo gdown ${link_gdrive} --folder ./rootfs
           else
             if [ $(echo ${{ inputs.rootfs_url }} | grep "mediafire.com") ]; then
              sudo mediafire-dl ${{ inputs.rootfs_url }} ./rootfs
