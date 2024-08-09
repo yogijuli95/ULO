@@ -9,12 +9,12 @@ on:
       kernel:
         description: 'Kernel Version (ex. 6.6.6, 6.1.31-localversion)'
         required: true
-        default: '6.6.6'
+        default: '5.4.279'
         type: string
       devices:
         description: "Devices"
         required: true
-        default: "s905x"
+        default: "s905x4"
         type: choice
         options:
           - s905x
