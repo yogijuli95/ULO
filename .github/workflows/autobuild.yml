@@ -35,6 +35,10 @@ on:
           - rk3566-orangepi-3b
           - rk3588-orangepi-5plus
           - rk3588s-orangepi-5
+      versi:
+        description: "Pilih ULO / ULO2"
+        required: true
+        default: "ulo"
       rootfs_url:
         description: "Upload ROOTFS via link (MEGA,mediafire,GDrive)"
         required: false
@@ -105,7 +109,7 @@ jobs:
           
       - name: Building OpenWrt
         run: |
-          sudo ./ulo -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs }} -s ${{ inputs.rootfs_size }}
+          sudo ./${{ inputs.versi }} -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs }} -s ${{ inputs.rootfs_size }}
           
       - name: Creating Package Artifact
         run: |
