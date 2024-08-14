@@ -332,8 +332,8 @@ unpack_boot_kernel() {
     cp -r $common_root/* ${last_device}/$kernel/root
 
     tar xzf $device_path/$device/boot-$device.tar.gz -C ${last_device}/$kernel/boot
-    tar xzf $path/modules-*.tar.gz -C ${last_device}/$kernel/root
-#    tar xzf $path/modules-*.tar.gz -C ${last_device}/$kernel/root/lib/modules
+#    tar xzf $path/modules-*.tar.gz -C ${last_device}/$kernel/root
+    tar xzf $path/modules-*.tar.gz -C ${last_device}/$kernel/root/lib/modules
     (cd $tmp/device/$device/$kernel/root/lib/modules/$kernel/ && rm -f build source *.ko 2>/dev/null &&
     find ./ -type f -name '*.ko' -exec ln -s {} ./ \;)
 
