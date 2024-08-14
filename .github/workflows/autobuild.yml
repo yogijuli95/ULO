@@ -110,6 +110,7 @@ jobs:
       - name: Building OpenWrt
         run: |
           sudo chmod +x ulo2
+          sudo chmod +x ulo
           sudo ./${{ inputs.versi }} -k ${{ inputs.kernel }} -m ${{ inputs.devices }} -r ${{ inputs.rootfs }} -s ${{ inputs.rootfs_size }}
           
       - name: Creating Package Artifact
